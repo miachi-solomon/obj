@@ -23,13 +23,9 @@ function displayBook() {
         ${book.author}
         ${book.pages}
         ${book.read}`;
+        
         bookDiv.classList.add('book-card');
-        bookDiv.append(html)
+        bookDiv.innerHTML = html;
         pageDiv.append(bookDiv);
     });
 }
-
-addBookToLibrary('system design', 'miachi', 23, true);
-addBookToLibrary('scalable system', 'solomon', 45, false);
-
-displayBook()
