@@ -1,4 +1,5 @@
 const pageDiv = document.querySelector('.container');
+const btn = document.querySelector('button');
 
 const myLibrary = [];
 
@@ -18,14 +19,27 @@ function addBookToLibrary(...args) {
 function displayBook() {
     myLibrary.map((book) => {
         let bookDiv = document.createElement('div');
-        const html = `
-        ${book.title}
-        ${book.author}
-        ${book.pages}
-        ${book.read}`;
+        let bookTitle = document.createElement('h1');
+        let bookPages = document.createElement('p');
+        let bookAuthor = document.createElement('p');
+        let removeBtn = document.createElement('button');
         
         bookDiv.classList.add('book-card');
-        bookDiv.innerHTML = html;
+        bookTitle.classList.add('book-title');
+        bookPages.classList.add('book-pages');
+        bookAuthor.classList.add('book-author');
+        removeBtn.classList.add('remove-btn');
+
+        removeBtn.innerText = 'Remove';
+        bookTitle.innerText = book.title;
+        bookPages.innerText = book.pages + ' pages';
+        bookAuthor.innerText = book.author;
+
+        bookDiv.append(bookTitle);
+        bookDiv.append(bookPages);
+        bookDiv.append(bookAuthor);
+        bookDiv.append(removeBtn);
+
         pageDiv.append(bookDiv);
     });
 }
