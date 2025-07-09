@@ -14,7 +14,7 @@
     </div>
     <div class="container"></div>
 
-    <dialog id="dialog" closedby="any">
+    <dialog id="dialog">
         <form method="dialog">
             <p>
                 <label for="title">
@@ -33,13 +33,16 @@
             </p>
             <p>
                 <label for="read">
-                    Read: <input type="checkbox" id="read" name="pages">
+                    Read: <input type="checkbox" id="read" name="read">
                 </label>
                 <label for="not-read">
-                    Not Read: <input type="checkbox" id="not-read" name="pages">
+                    Not Read: <input type="checkbox" id="not-read" name="not-read">
                 </label>
             </p>
-            <button class="close">Close</button>
+            <div class="controls">
+                <button id="close" formmethod="dialog">Close</button>
+                <button id="add-book" value="default">Add Book</button>
+            </div>
         </form>
     </dialog>
 </body>
