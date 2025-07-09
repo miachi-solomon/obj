@@ -13,5 +13,34 @@
         <button class="new-btn">New Book</button>
     </div>
     <div class="container"></div>
+
+    <dialog id="dialog" closedby="any">
+        <form method="dialog">
+            <p>
+                <label for="title">
+                    Title: <input type="text" id="title" name="title">
+                </label>
+            </p>
+            <p>
+                <label for="author">
+                    Author: <input type="text" id="author" name="author">
+                </label>
+            </p>
+            <p>
+                <label for="pages">
+                    Pages: <input type="number" id="pages" name="pages">
+                </label>
+            </p>
+            <p>
+                <label for="read">
+                    Read: <input type="checkbox" id="read" name="pages">
+                </label>
+                <label for="not-read">
+                    Not Read: <input type="checkbox" id="not-read" name="pages">
+                </label>
+            </p>
+            <button class="close">Close</button>
+        </form>
+    </dialog>
 </body>
 </html>

@@ -1,5 +1,6 @@
 const pageDiv = document.querySelector('.container');
-const btn = document.querySelector('button');
+const newBtn = document.querySelector('.new-btn');
+const dialog = document.querySelector('#dialog');
 
 const myLibrary = [];
 
@@ -43,3 +44,7 @@ function displayBook() {
         pageDiv.append(bookDiv);
     });
 }
+
+newBtn.addEventListener('click', () => {
+    dialog.showModal();
+});
