@@ -2,6 +2,7 @@ const pageDiv = document.querySelector('.container');
 const newBtn = document.querySelector('.new-btn');
 const dialog = document.querySelector('#dialog');
 const addBookBtn = document.getElementById('add-book');
+const form = document.getElementById('all-inputs');
 
 const myLibrary = [];
 
@@ -53,4 +54,9 @@ newBtn.addEventListener('click', () => {
 addBookBtn.addEventListener('click', (e) => {
     e.preventDefault();
     dialog.close();
+});
+
+dialog.addEventListener('close', () => {
+    addBookToLibrary(title.value, author.value, pages.value, read.value);
+    form.reset();
 });
