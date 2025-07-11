@@ -22,29 +22,36 @@ function addBookToLibrary(...args) {
 function displayBook() {
     myLibrary.map((book) => {
         if (myLibrary.indexOf(book) == myLibrary.length - 1) {
-        let bookDiv = document.createElement('div');
-        let bookTitle = document.createElement('h1');
-        let bookPages = document.createElement('p');
-        let bookAuthor = document.createElement('p');
-        let removeBtn = document.createElement('button');
-        
-        bookDiv.classList.add('book-card');
-        bookTitle.classList.add('book-title');
-        bookPages.classList.add('book-pages');
-        bookAuthor.classList.add('book-author');
-        removeBtn.classList.add('remove-btn');
+            let bookDiv = document.createElement('div');
+            let bookTitle = document.createElement('h1');
+            let bookPages = document.createElement('p');
+            let bookAuthor = document.createElement('p');
+            let removeBtn = document.createElement('button');
+            
+            bookDiv.classList.add('book-card');
+            bookTitle.classList.add('book-title');
+            bookPages.classList.add('book-pages');
+            bookAuthor.classList.add('book-author');
+            removeBtn.classList.add('remove-btn');
 
-        removeBtn.innerText = 'Remove';
-        bookTitle.innerText = book.title;
-        bookPages.innerText = book.pages + ' pages';
-        bookAuthor.innerText = book.author;
+            bookDiv.setAttribute('data-id', book.id);
 
-        bookDiv.append(bookTitle);
-        bookDiv.append(bookPages);
-        bookDiv.append(bookAuthor);
-        bookDiv.append(removeBtn);
+            removeBtn.addEventListener('click', (e) => {
+                e.target.parentElement.remove();
+                myLibrary.splice(myLibrary.indexOf(book, 1));
+            });
 
-        pageDiv.append(bookDiv);
+            removeBtn.innerText = 'Remove';
+            bookTitle.innerText = book.title;
+            bookPages.innerText = book.pages + ' pages';
+            bookAuthor.innerText = book.author;
+
+            bookDiv.append(bookTitle);
+            bookDiv.append(bookPages);
+            bookDiv.append(bookAuthor);
+            bookDiv.append(removeBtn);
+
+            pageDiv.append(bookDiv);
         }
     });
 }
@@ -56,9 +63,6 @@ newBtn.addEventListener('click', () => {
 addBookBtn.addEventListener('click', (e) => {
     e.preventDefault();
     dialog.close();
-});
-
-dialog.addEventListener('close', () => {
     addBookToLibrary(title.value, author.value, pages.value, read.value);
     form.reset();
     displayBook();
