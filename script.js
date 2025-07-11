@@ -10,7 +10,6 @@ function Book(title, author, pages, read) {
     this.title = title;
     this.author = author;
     this.pages = pages;
-    this.read = read;
     this.id = crypto.randomUUID();
 }
 
@@ -63,7 +62,7 @@ newBtn.addEventListener('click', () => {
 addBookBtn.addEventListener('click', (e) => {
     e.preventDefault();
     dialog.close();
-    addBookToLibrary(title.value, author.value, pages.value, read.value);
+    addBookToLibrary(title.value, author.value, pages.value);
     form.reset();
     displayBook();
 });

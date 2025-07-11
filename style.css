@@ -77,3 +77,29 @@ h1 {
     right: 5px;
     top: 30px;
 }
+
+p {
+    width: 200px;
+}
+
+#dialog {
+    border: none;
+}
+
+#close,
+#add-book {
+    border: none;
+    color: white;
+    width: 90px;
+    height: 30px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#add-book {
+    background-color: green;
+}
+
+#close {
+    background-color: red;
+}
