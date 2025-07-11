@@ -21,6 +21,7 @@ function addBookToLibrary(...args) {
 
 function displayBook() {
     myLibrary.map((book) => {
+        if (myLibrary.indexOf(book) == myLibrary.length - 1) {
         let bookDiv = document.createElement('div');
         let bookTitle = document.createElement('h1');
         let bookPages = document.createElement('p');
@@ -44,6 +45,7 @@ function displayBook() {
         bookDiv.append(removeBtn);
 
         pageDiv.append(bookDiv);
+        }
     });
 }
 
@@ -59,4 +61,5 @@ addBookBtn.addEventListener('click', (e) => {
 dialog.addEventListener('close', () => {
     addBookToLibrary(title.value, author.value, pages.value, read.value);
     form.reset();
+    displayBook();
 });
