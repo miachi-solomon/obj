@@ -6,11 +6,13 @@ const form = document.getElementById('all-inputs');
 
 const myLibrary = [];
 
-function Book(title, author, pages, read) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.id = crypto.randomUUID();
+class Book {
+    constructor (title, author, pages) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.id = crypto.randomUUID();
+    }
 }
 
 function addBookToLibrary(...args) {
